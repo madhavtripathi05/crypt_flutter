@@ -1,3 +1,4 @@
+import 'package:crypt_flutter/utils.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -13,7 +14,7 @@ void main() {
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: GoogleFonts.montserrat().fontFamily),
+      theme: lightTheme,
     ),
   );
 }

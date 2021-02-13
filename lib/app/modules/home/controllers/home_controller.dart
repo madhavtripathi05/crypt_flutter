@@ -1,13 +1,14 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:crypt_flutter/utils.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart' hide Key;
 import 'package:get/get.dart';
 import 'package:open_file/open_file.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:encrypt/encrypt.dart';
 import 'package:share/share.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomeController extends GetxController {
   static final to = Get.find<HomeController>();
@@ -16,6 +17,11 @@ class HomeController extends GetxController {
   final encrypter = Encrypter(AES(key));
   RxBool permissionGranted = false.obs;
   RxString _externalDocumentsDirectory = ''.obs;
+
+  changeTheme() {
+    Get.changeTheme(
+        Get.theme.brightness == Brightness.dark ? lightTheme : darkTheme);
+  }
 
   Future<Directory> get getExternalDir async {
     _externalDocumentsDirectory.value = '/storage/emulated/0';

@@ -13,6 +13,11 @@ class HomeView extends GetView<HomeController> {
       appBar: AppBar(
         title: Text('CRYPT'),
         centerTitle: true,
+        actions: [
+          IconButton(
+              icon: Icon(FlutterIcons.theme_light_dark_mco),
+              onPressed: hc.changeTheme)
+        ],
       ),
       body: Center(
         child: Column(
